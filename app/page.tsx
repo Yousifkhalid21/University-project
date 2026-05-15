@@ -28,8 +28,8 @@ export default function HomePage() {
               <Image
                 src={product.image}
                 alt={product.name}
-                width={600}
-                height={320}
+                width={640}
+                height={480}
                 className="w-full h-44 object-cover bg-gray-100"
               />
               <div className="p-4">
@@ -38,7 +38,7 @@ export default function HomePage() {
                 <div className="mt-4 flex items-center justify-between">
                   <span className="text-blue-600 font-bold">${product.price.toFixed(2)}</span>
                   <Link href="/cart" className="text-sm text-blue-600 hover:underline font-medium">
-                    Open cart
+                    Go to cart
                   </Link>
                 </div>
               </div>
