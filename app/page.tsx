@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import products from './data.json';
 
 type Product = {
@@ -18,9 +19,11 @@ export default function HomePage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((product) => (
             <article key={product.id} className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
+                width={400}
+                height={176}
                 className="h-44 w-full object-cover bg-gray-100"
               />
               <div className="p-4">
