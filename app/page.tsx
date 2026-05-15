@@ -9,6 +9,9 @@ type Product = {
   image: string;
 };
 
+const PRODUCT_IMAGE_WIDTH = 400;
+const PRODUCT_IMAGE_HEIGHT = 176;
+
 export default function HomePage() {
   const items = products as Product[];
 
@@ -22,8 +25,8 @@ export default function HomePage() {
               <Image
                 src={product.image}
                 alt={product.name}
-                width={400}
-                height={176}
+                width={PRODUCT_IMAGE_WIDTH}
+                height={PRODUCT_IMAGE_HEIGHT}
                 className="w-full object-cover bg-gray-100"
               />
               <div className="p-4">
