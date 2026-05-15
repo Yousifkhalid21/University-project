@@ -133,6 +133,7 @@ export default function CartPage() {
     };
 
     console.log('🚀 Order payload prepared:', orderPayload);
+    localStorage.setItem('checkout-cart', JSON.stringify(cart));
     router.push('/checkout');
   };
 

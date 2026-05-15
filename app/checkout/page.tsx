@@ -1,15 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import TopNavbar from '../components/TopNavbar';
 
-const cartItems = [
+type CheckoutItem = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+};
+
+const fallbackCartItems: CheckoutItem[] = [
   { id: 1, name: 'Wireless Mouse', price: 25.0, quantity: 1 },
   { id: 2, name: 'Laptop Stand', price: 45.0, quantity: 1 },
 ];
 
 export default function CheckoutPage() {
+  const [cartItems, setCartItems] = useState<CheckoutItem[]>(fallbackCartItems);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -22,6 +30,23 @@ export default function CheckoutPage() {
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = 15.0;
   const total = subtotal + shipping;
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('checkout-cart');
+
+    if (!savedCart) {
+      return;
+    }
+
+    try {
+      const parsedCart = JSON.parse(savedCart) as CheckoutItem[];
+      if (Array.isArray(parsedCart) && parsedCart.length > 0) {
+        setCartItems(parsedCart);
+      }
+    } catch {
+      setCartItems(fallbackCartItems);
+    }
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -50,6 +75,7 @@ export default function CheckoutPage() {
     };
 
     console.log('💾 SAVING TO DATABASE:', databasePayload);
+    setIsSubmitting(false);
     setIsSuccess(true);
   };
 
