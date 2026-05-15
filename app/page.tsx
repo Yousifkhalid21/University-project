@@ -1,4 +1,5 @@
 import products from './data.json';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
@@ -9,9 +10,11 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <article key={product.id} className="bg-white rounded-xl border border-gray-200 shadow-sm p-4">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
+                width={600}
+                height={400}
                 className="w-full h-44 object-cover rounded-lg bg-gray-100"
               />
               <h2 className="mt-4 text-lg font-semibold text-gray-900">{product.name}</h2>
