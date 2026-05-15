@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-labelledby="t">
+  <title id="t">Extended Mouse Pad</title>
+  <rect width="640" height="480" fill="#f1f5f9"/>
+  <rect x="80" y="200" width="480" height="120" rx="24" fill="#0f172a"/>
+  <rect x="100" y="220" width="440" height="80" rx="16" fill="#1e293b"/>
+</svg>
