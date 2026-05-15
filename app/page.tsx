@@ -24,7 +24,7 @@ export default function HomePage() {
                 alt={product.name}
                 width={400}
                 height={176}
-                className="h-44 w-full object-cover bg-gray-100"
+                className="w-full object-cover bg-gray-100"
               />
               <div className="p-4">
                 <h2 className="font-semibold text-gray-900">{product.name}</h2>
