@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "price": 25,
+      "description": "Comfortable wireless mouse with precise tracking.",
+      "image": "/images/wireless-mouse.svg"
+    },
+    {
+      "id": 2,
+      "name": "Laptop Stand",
+      "price": 45,
+      "description": "Adjustable aluminum stand for better ergonomics.",
+      "image": "/images/laptop-stand.svg"
+    },
+    {
+      "id": 3,
+      "name": "Mechanical Keyboard",
+      "price": 85,
+      "description": "Tactile keyboard designed for speed and comfort.",
+      "image": "/images/mechanical-keyboard.svg"
+    },
+    {
+      "id": 4,
+      "name": "Extended Mouse Pad",
+      "price": 15,
+      "description": "Large anti-slip mouse pad for smooth movement.",
+      "image": "/images/extended-mouse-pad.svg"
+    }
+  ]
+}
