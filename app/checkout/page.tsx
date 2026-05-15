@@ -11,6 +11,7 @@ const cartItems = [
 
 export default function CheckoutPage() {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -28,6 +29,7 @@ export default function CheckoutPage() {
 
   const handleConfirmPurchase = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const databasePayload = {
       customer: {
@@ -183,9 +185,11 @@ export default function CheckoutPage() {
               <button
                 type="submit"
                 form="checkout-form"
-                className="mt-8 inline-flex w-full min-h-12 items-center justify-center rounded-xl bg-blue-600 px-6 text-lg font-bold text-white shadow-sm transition-colors hover:bg-blue-700"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
+                className="mt-8 inline-flex w-full min-h-12 items-center justify-center rounded-xl bg-blue-600 px-6 text-lg font-bold text-white shadow-sm transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-blue-400"
               >
-                Confirm Purchase
+                {isSubmitting ? 'Processing...' : 'Confirm Purchase'}
               </button>
               <p className="mt-4 text-center text-xs text-slate-500">🔒 Secure 256-bit encryption</p>
             </section>

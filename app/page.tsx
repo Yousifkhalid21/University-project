@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TopNavbar from './components/TopNavbar';
 
 type Product = {
@@ -40,6 +40,15 @@ const featuredProducts: Product[] = [
 
 export default function HomePage() {
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (!message) {
+      return;
+    }
+
+    const timeoutId = setTimeout(() => setMessage(''), 3000);
+    return () => clearTimeout(timeoutId);
+  }, [message]);
 
   const handleAddToCart = (name: string) => {
     setMessage(`${name} was added to your cart.`);

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import TopNavbar from '../components/TopNavbar';
 
 // --- Database Structure Types ---
@@ -74,8 +74,18 @@ const crossSellingSuggestions: Suggestion[] = [
 ];
 
 export default function CartPage() {
+  const router = useRouter();
   const [cart, setCart] = useState<CartItem[]>(initialCart);
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if (!message) {
+      return;
+    }
+
+    const timeoutId = setTimeout(() => setMessage(''), 3000);
+    return () => clearTimeout(timeoutId);
+  }, [message]);
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const FREE_SHIPPING_THRESHOLD = 100;
@@ -123,6 +133,7 @@ export default function CartPage() {
     };
 
     console.log('🚀 Order payload prepared:', orderPayload);
+    router.push('/checkout');
   };
 
   return (
@@ -206,13 +217,12 @@ export default function CartPage() {
                 </div>
               )}
 
-              <Link
-                href="/checkout"
+              <button
                 onClick={handleCheckout}
                 className="inline-flex w-full min-h-12 items-center justify-center rounded-xl bg-blue-600 px-6 text-lg font-bold text-white shadow-sm transition-colors hover:bg-blue-700"
               >
                 Proceed to Checkout
-              </Link>
+              </button>
             </div>
           </aside>
         </div>
