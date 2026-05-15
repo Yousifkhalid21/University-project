@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "price": 25,
+    "category": "Accessories",
+    "image": "/images/mouse.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Webcam HD",
+    "price": 60,
+    "category": "Accessories",
+    "image": "/images/webcam.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Headphones",
+    "price": 80,
+    "category": "Audio",
+    "image": "/images/headphones.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Laptop Stand",
+    "price": 45,
+    "category": "Accessories",
+    "image": "/images/laptop-stand.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Laptop Pro",
+    "price": 1299,
+    "category": "Laptops",
+    "image": "/images/laptop.jpg"
+  },
+  {
+    "id": 6,
+    "name": "4K Monitor",
+    "price": 350,
+    "category": "Monitors",
+    "image": "/images/monitor.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Mechanical Keyboard",
+    "price": 85,
+    "category": "Accessories",
+    "image": "/images/keyboard.jpg"
+  },
+  {
+    "id": 8,
+    "name": "USB-C Hub",
+    "price": 40,
+    "category": "Accessories",
+    "image": "/images/hub.jpg"
+  }
+]
